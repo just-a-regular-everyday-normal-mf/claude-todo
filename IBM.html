@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IBM Spring Boot Campus Test: 7-Day Prep Plan</title>
+<style>
+  :root{
+    --bg:#f7f7f5; --card:#ffffff; --text:#1d1d1f; --muted:#6b6b70; --line:#e3e3e0;
+    --accent:#0f62fe; --accent-soft:#e8f0ff; --ok:#198038; --warn:#b28600; --warn-soft:#fff6d6;
+    --code-bg:#efefec;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141416; --card:#1d1d20; --text:#ececee; --muted:#9a9aa2; --line:#303034;
+      --accent:#78a9ff; --accent-soft:#1c2a45; --ok:#42be65; --warn:#f1c21b; --warn-soft:#3a3214;
+      --code-bg:#2a2a2e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+  header{padding:28px 0 12px}
+  h1{font-size:1.7rem;margin:0 0 6px;line-height:1.25}
+  h2{font-size:1.25rem;margin:0 0 10px}
+  h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 6px}
+  .meta{color:var(--muted);margin:0}
+  .meta b{color:var(--text)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+  .progress{position:sticky;top:0;z-index:10;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid var(--line)}
+  .bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+  .bar>div{height:100%;width:0;background:var(--ok);transition:width .25s}
+  .ptext{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-top:6px;gap:8px;flex-wrap:wrap}
+  .ptext button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:2px 8px;cursor:pointer;font-size:.8rem}
+  nav{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+  nav a{font-size:.85rem;text-decoration:none;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:999px}
+  ul{margin:6px 0;padding-left:20px}
+  li{margin:4px 0}
+  ul.tasks{list-style:none;padding-left:0}
+  ul.tasks>li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:8px;margin:6px 0}
+  ul.tasks>li.done{opacity:.55}
+  ul.tasks>li.done .t{text-decoration:line-through}
+  ul.tasks input{margin-top:5px;width:18px;height:18px;flex:none;accent-color:var(--ok)}
+  .t{flex:1;min-width:0}
+  .star{color:var(--warn);font-weight:700}
+  .opt{color:var(--muted);font-weight:700}
+  .time{font-size:.8rem;color:var(--muted);white-space:nowrap}
+  .sub{margin:6px 0 0;font-size:.93rem;color:var(--muted)}
+  .sub li{margin:2px 0}
+  code{background:var(--code-bg);padding:1px 5px;border-radius:4px;font:.88em ui-monospace,Menlo,Consolas,monospace}
+  a{color:var(--accent)}
+  .note{background:var(--warn-soft);border-left:4px solid var(--warn);padding:10px 14px;border-radius:6px;margin:12px 0}
+  .day-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .day-head .count{font-size:.85rem;color:var(--muted)}
+  footer{color:var(--muted);font-size:.85rem;margin-top:30px}
+  @media print{.progress,nav{display:none}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>IBM Spring Boot Campus Test: 7-Day Prep Plan</h1>
+  <p class="meta"><b>Test:</b> IBM Software Engineer – Campus 2026-27, HackerRank, 80 min, Software Fundamentals (1 question) + Spring Boot (1 question).</p>
+  <p class="meta"><b>Budget:</b> 2.5 to 3 hours a day for 7 days. Day 1 is today.</p>
+  <p class="meta"><b>Key:</b> <span class="star">★</span> = must do, <span class="opt">☆</span> = stretch (if you have time or are ahead). Ticks are saved in this browser.</p>
+</header>
+
+<div class="progress">
+  <div class="bar"><div id="barfill"></div></div>
+  <div class="ptext"><span id="ptext">0 of 0 tasks done</span><span><button id="reset" type="button">Reset ticks</button></span></div>
+</div>
+
+<nav>
+  <a href="#known">What's known</a>
+  <a href="#d1">Day 1</a><a href="#d2">Day 2</a><a href="#d3">Day 3</a><a href="#d4">Day 4</a>
+  <a href="#d5">Day 5</a><a href="#d6">Day 6</a><a href="#d7">Day 7</a>
+  <a href="#bugs">Bug checklist</a><a href="#testday">Test day</a><a href="#res">Resources</a>
+</nav>
+
+<section class="card" id="known">
+  <h2>1. What is actually known about this test (and what is not)</h2>
+  <h3>Backed by candidate reports (PracHub write-ups, Aug 2026, and Glassdoor)</h3>
+  <ul>
+    <li>80 minutes total, strict proctoring (one monitor, full-screen), and a slow web IDE where you cannot run single tests, so full runs eat time.</li>
+    <li>You pick a framework at the start (Django, Spring Boot or Node). You have already been given Spring Boot (Java).</li>
+    <li>Question 1 was LeetCode 1797, Design Authentication Manager. Another candidate reported an easy-to-medium binary search question instead, so expect a design, hash-map or binary-search style problem, not exotic DSA.</li>
+    <li>Question 2 was a pre-built ticket-booking web app with broken backend code. Topics: REST behaviour, caching, pagination. A candidate with the Django version of the same 80-minute test listed the actual bugs: search filters not chained, pagination crashing on non-positive page or page_size, and cache not evicted when an event is created or edited. Expect the same bug classes in Spring Boot.</li>
+  </ul>
+  <h3>Not verified (treat as guesses)</h3>
+  <div class="note">
+    <ul>
+      <li>Gemini's claims of 40 minutes per section, Spring Boot 3.3 and ConcurrentMapCacheManager. I found no source for these. Prepare for a shared 80-minute timer.</li>
+      <li>ChatGPT's items 4-11 (e.g. Maximize Revenue from Depleting VM Stock, Break Adjacent Duplicate Characters) and "Maximum Number of Valid Pairs". I could not confirm them, and the last is not a LeetCode title I recognise. They are optional extras, not core.</li>
+      <li>No report confirms the campus 2026-27 test uses exactly these questions. It is the same company, same length and same section names, so it is very likely the same question family.</li>
+    </ul>
+  </div>
+  <p><b>Plan logic:</b> half the marks are a debugging task, so the plan is half hands-on Spring Boot (build your own ticketing app, then break and fix it) and half DSA focused on design and hash-map problems.</p>
+</section>
+
+<!-- DAY 1 -->
+<section class="card day" id="d1">
+  <div class="day-head"><h2>Day 1: Foundations and the reported Question 1</h2><span class="count"></span></div>
+  <h3>Block A: DSA (about 70 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 49 Group Anagrams <span class="time">15 min</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 560 Subarray Sum Equals K <span class="time">20 min</span><div class="sub">Prefix sum plus HashMap.</div></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 1797 Design Authentication Manager, three passes <span class="time">35 min</span>
+      <ul class="sub">
+        <li>Pass 1: <code>HashMap&lt;String,Integer&gt;</code> of tokenId to expiry; count by scanning.</li>
+        <li>Pass 2: <code>LinkedHashMap</code> with lazy purge. Time only increases and TTL is constant, so remove-then-put on renew keeps entries sorted by expiry. Pop expired entries from the head, then the size is your count (amortized O(1)).</li>
+        <li>Pass 3: edge rules. A token expiring at time t is already expired for any action at time t (use <code>expiry &gt; now</code>). Renew on a missing or expired token is ignored. Check whether generate on an existing id replaces it, and what the statement says about time ordering.</li>
+      </ul></div></li>
+  </ul>
+  <h3>Block B: Spring Boot baseline (about 75 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Create a project at start.spring.io: Java 17, Maven, dependencies Spring Web, Spring Data JPA, H2, Validation, Spring Cache. Skip Lombok so you practise writing getters.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Model "TicketHub": <code>Event(id, name, date, venue, totalSeats, availableSeats)</code> and <code>Booking(id, eventId, quantity, status, idempotencyKey)</code>, with repositories, a service layer and controllers.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Endpoints: <code>GET /events</code>, <code>GET /events/{id}</code>, <code>POST /events</code>, <code>POST /events/{id}/bookings</code>, <code>DELETE /bookings/{id}</code>.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Run it, hit every endpoint with curl or Postman, then <code>git init</code> and commit as "baseline" so you can break and fix it later.</div></li>
+  </ul>
+  <h3>Block C (about 20 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> On the IBM test page, click <b>Sample Test</b>. Check full-screen, one monitor, that the Spring Boot IDE loads, and how Run vs Submit behave.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Skim the PracHub write-ups linked in the Resources section.</div></li>
+    <li><input type="checkbox"><div class="t">Flashcards (10 min): HashMap internals, equals/hashCode, ArrayList vs LinkedList.</div></li>
+  </ul>
+</section>
+
+<!-- DAY 2 -->
+<section class="card day" id="d2">
+  <div class="day-head"><h2>Day 2: Design problems and REST correctness</h2><span class="count"></span></div>
+  <h3>Block A: DSA (about 70 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 146 LRU Cache <span class="time">30 min</span><div class="sub">Do HashMap plus doubly linked list first, then the <code>LinkedHashMap</code> <code>removeEldestEntry</code> version.</div></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 380 Insert Delete GetRandom O(1) <span class="time">20 min</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 1396 Design Underground System <span class="time">20 min</span></div></li>
+  </ul>
+  <h3>Block B: Status codes, validation, errors (about 85 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Add a <code>@RestControllerAdvice</code> GlobalExceptionHandler: not found → 404, validation failure → 400, sold out or insufficient seats → 409, bad argument or type mismatch → 400.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> POST returns 201 with a Location header, DELETE returns 204, and an unknown id returns 404 (not 200 with null).</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Add <code>@Valid</code> plus constraints on request DTOs (<code>@NotBlank</code>, <code>@Min(1)</code>) and handle missing or invalid <code>@RequestParam</code> values.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Write at least 8 MockMvc tests (<code>@WebMvcTest</code> plus <code>@MockBean</code>), one per status code path.</div></li>
+    <li><input type="checkbox"><div class="t">Read: Baeldung "Exception Handling for REST with Spring" and reflectoring "Testing MVC Web Controllers" (see Resources).</div></li>
+  </ul>
+  <h3>Block C (about 15 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t">Flashcards: == vs equals, String vs StringBuilder vs StringBuffer, checked vs unchecked exceptions.</div></li>
+  </ul>
+</section>
+
+<!-- DAY 3 -->
+<section class="card day" id="d3">
+  <div class="day-head"><h2>Day 3: Binary search and pagination</h2><span class="count"></span></div>
+  <h3>Block A: DSA (about 60 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 704 Binary Search and 35 Search Insert Position <span class="time">15 min total</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 34 Find First and Last Position of Element in Sorted Array <span class="time">15 min</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 33 Search in Rotated Sorted Array <span class="time">15 min</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 981 Time Based Key-Value Store <span class="time">15 min</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="opt">☆</span> LeetCode 875 Koko Eating Bananas</div></li>
+  </ul>
+  <h3>Block B: Pagination (about 90 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> <code>GET /events?page=&amp;size=&amp;sort=</code> using <code>Pageable</code> or <code>PageRequest</code>. Return a DTO with content, page, size, totalElements, totalPages.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Edge cases: page &lt; 0, size &lt;= 0, size above a cap (say 100), non-numeric values, page beyond the last page (empty content). Decide the behaviour (400 or fallback to defaults) and know which one Spring's own Pageable resolver gives you versus a plain <code>@RequestParam int</code>.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Deterministic ordering: always add a tie-breaker (<code>Sort.by("date").and(Sort.by("id"))</code>). Verify no row is duplicated or skipped across page boundaries.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Optional filters (name, venue, date range) that combine with each other and with paging. The Django bug was filters not being chained.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Six tests: first page, last partial page, beyond last page, invalid params, sort order, filter plus page together.</div></li>
+    <li><input type="checkbox"><div class="t">Watch/read: the loizenai pagination video and the Dan Vega or codejava tutorials (see Resources).</div></li>
+  </ul>
+  <h3>Block C (about 15 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t">Flashcards: DI and IoC, bean scopes, bean lifecycle.</div></li>
+  </ul>
+</section>
+
+<!-- DAY 4 -->
+<section class="card day" id="d4">
+  <div class="day-head"><h2>Day 4: Heaps and caching</h2><span class="count"></span></div>
+  <h3>Block A: DSA (about 60 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 1845 Seat Reservation Manager <span class="time">15 min</span><div class="sub">Min-heap, and it is ticket-themed.</div></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 2034 Stock Price Fluctuation <span class="time">25 min</span><div class="sub">TreeMap, or two heaps with lazy deletion.</div></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 347 Top K Frequent Elements <span class="time">15 min</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="opt">☆</span> LeetCode 703 Kth Largest Element in a Stream</div></li>
+  </ul>
+  <h3>Block B: Caching (about 90 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Add <code>@EnableCaching</code>. Put <code>@Cacheable("event", key="#id")</code> on getEvent. Prove it works by verifying the repository is called once across two reads.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Reproduce the stale-data bug: update an event, then GET it and see the old value. Fix with <code>@CachePut</code> or <code>@CacheEvict</code> on update and delete, and <code>@CacheEvict(allEntries=true)</code> on create for any cached list.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> If you cache lists, the key must include page, size, sort and filters, or do not cache lists at all.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Learn the classic cache traps: calling a cached method from the same class (proxy bypass), annotations on private methods, missing <code>@EnableCaching</code>, wrong cache name, caching a mutable entity.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="opt">☆</span> Know the difference between the default ConcurrentMapCacheManager and Caffeine or Redis (concepts only).</div></li>
+    <li><input type="checkbox"><div class="t">Watch: MVP Java "Spring Caching with Caffeine Cache" (annotations overview part only) and read the howtodoinjava cache article.</div></li>
+  </ul>
+  <h3>Block C (about 15 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t">Flashcards: <code>@Transactional</code> and propagation, lazy vs eager loading, JPA entity relationships.</div></li>
+  </ul>
+</section>
+
+<!-- DAY 5 -->
+<section class="card day" id="d5">
+  <div class="day-head"><h2>Day 5: Concurrency, overselling, idempotency, timed re-solves</h2><span class="count"></span></div>
+  <h3>Block A: DSA (about 60 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Timed re-solve from a blank file, no peeking: LeetCode 1797 <span class="time">20 min</span> and LeetCode 146 <span class="time">25 min</span></div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 1146 Snapshot Array <span class="time">15 min</span><div class="sub">Binary search plus a map.</div></div></li>
+    <li><input type="checkbox"><div class="t"><span class="opt">☆</span> LeetCode 2349 Design a Number Container System</div></li>
+  </ul>
+  <h3>Block B: Correct under load (about 90 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Prevent overselling three ways and know the trade-offs: (1) atomic <code>UPDATE ... SET available = available - :qty WHERE id = :id AND available &gt;= :qty</code> and check rows updated, (2) <code>@Version</code> optimistic locking with a retry, (3) <code>@Lock(PESSIMISTIC_WRITE)</code>.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Idempotent booking: an Idempotency-Key header or unique constraint, so a retried request returns the original booking and never creates a duplicate.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> <code>@Transactional</code> on the service layer, rollback on runtime exceptions, <code>readOnly=true</code> for queries.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Concurrency test: 50 threads each book 1 seat on a 10-seat event and exactly 10 succeed.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Cancelling a booking restores seats exactly once, and cancelling twice does not double-restore.</div></li>
+  </ul>
+  <h3>Block C (about 15 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t">Flashcards: REST idempotency (GET, PUT and DELETE idempotent, POST not), HTTP status code cheat sheet, multithreading and synchronization.</div></li>
+  </ul>
+</section>
+
+<!-- DAY 6 -->
+<section class="card day" id="d6">
+  <div class="day-head"><h2>Day 6: Bug-hunt day</h2><span class="count"></span></div>
+  <h3>Block A: DSA (about 50 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> LeetCode 2043 Simple Bank System <span class="time">30 min</span><div class="sub">A validated state-machine design, close in spirit to a booking backend.</div></div></li>
+    <li><input type="checkbox"><div class="t"><span class="opt">☆</span> LeetCode 1472 Design Browser History and 1603 Design Parking System (warm-ups)</div></li>
+    <li><input type="checkbox"><div class="t"><span class="opt">☆</span> Tree stretch: PracHub "Count Tree Vertices with Pythagorean Distances" (BFS from three vertices, iterative to avoid recursion limits). It appeared in another 80-minute IBM variant.</div></li>
+  </ul>
+  <h3>Block B: Debug under the clock (about 100 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Ask Claude in the chat to generate a Spring Boot ticketing project with planted bugs and a test suite, then fix it against a 45-minute timer.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Method for the drill: run the whole suite first, list the failing tests, group them by cause (routing, status code, pagination, cache, concurrency), fix the group with the most failures first, re-run. Do not edit the tests.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Practise reading an unfamiliar codebase fast: start from the failing test, find the endpoint, follow controller → service → repository.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="opt">☆</span> Read the PracHub "Debug Event Search, Pagination, and Redis Invalidation" and "Debug and Harden a Ticketing Backend API" pages to see how those bugs were described.</div></li>
+  </ul>
+  <h3>Block C (about 10 min)</h3>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Start your one-page bug cheat sheet (use the checklist below) and add the mistakes you actually made this week.</div></li>
+  </ul>
+</section>
+
+<!-- DAY 7 -->
+<section class="card day" id="d7">
+  <div class="day-head"><h2>Day 7: Full mock and test-day prep</h2><span class="count"></span></div>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Mock part 1 <span class="time">35 min</span>: one design problem you have not solved (LeetCode 1472 or any unseen design medium), in a plain editor, Java only, no AI help.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Mock part 2 <span class="time">45 min</span>: a second, different broken Spring Boot project (ask Claude for a fresh one). Run the full suite, fix, resubmit.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Review <span class="time">30 min</span>: write down every mistake and add it to your cheat sheet.</div></li>
+    <li><input type="checkbox"><div class="t"><span class="star">★</span> Run the test-day checklist below, then rest. No new topics tonight.</div></li>
+  </ul>
+</section>
+
+<section class="card" id="bugs">
+  <h2>Bug checklist (my synthesis of the reported bug classes)</h2>
+  <ul>
+    <li><b>REST and routing:</b> wrong mapping annotation or path variable name, wrong status code (200 vs 201 vs 204 vs 404 vs 409), returning null instead of 404, missing <code>@RequestBody</code> or <code>@Valid</code>, wrong HTTP method.</li>
+    <li><b>Pagination:</b> zero-based vs one-based page, crash on invalid page or size, no tie-breaker in sort, wrong totalPages or totalElements, size not capped, filter parameters not combined.</li>
+    <li><b>Caching:</b> missing <code>@EnableCaching</code>, no eviction on create, update or delete, key collision or key missing paging and filter params, self-invocation bypassing the proxy.</li>
+    <li><b>Correctness under concurrency:</b> check-then-act race on seat availability, duplicate bookings on retry, <code>@Transactional</code> missing or on the wrong layer, double restore on cancel.</li>
+  </ul>
+</section>
+
+<section class="card" id="testday">
+  <h2>Test-day checklist</h2>
+  <ul class="tasks">
+    <li><input type="checkbox"><div class="t">One monitor, close other apps and tabs, charger plugged in, stable internet, run the portal's compatibility check.</div></li>
+    <li><input type="checkbox"><div class="t">Choose Spring Boot (Java) at the framework prompt.</div></li>
+    <li><input type="checkbox"><div class="t">Read the full statement and all tests before touching code.</div></li>
+    <li><input type="checkbox"><div class="t">Budget about 30 to 35 minutes for the design problem. Run the whole suite early on the Spring Boot task and avoid wasting runs.</div></li>
+    <li><input type="checkbox"><div class="t">Write your own code. IBM runs originality checks and a correct answer can still be flagged.</div></li>
+  </ul>
+</section>
+
+<section class="card" id="res">
+  <h2>Resources</h2>
+  <h3>Real candidate reports and questions</h3>
+  <ul>
+    <li><a href="https://prachub.com/interview-experiences/ibm-software-engineer-interview-experience-an-80-minute-hackerrank-with-a-slow-web-ide" target="_blank" rel="noopener">PracHub: 80-minute HackerRank with a slow web IDE</a></li>
+    <li><a href="https://prachub.com/interview-experiences/ibm-software-engineer-interview-experience-an-80-minute-oa-with-tree-distances-and-django-debugging" target="_blank" rel="noopener">PracHub: 80-minute OA with tree distances and Django debugging</a></li>
+    <li><a href="https://prachub.com/interview-questions/debug-and-harden-a-ticketing-backend-api" target="_blank" rel="noopener">PracHub: Debug and Harden a Ticketing Backend API</a></li>
+    <li><a href="https://prachub.com/coding-questions/manage-authentication-tokens-with-a-fixed-time-to-live" target="_blank" rel="noopener">PracHub: Manage Authentication Tokens with a Fixed Time to Live</a></li>
+    <li><a href="https://prachub.com/coding-questions/count-tree-vertices-with-pythagorean-distances" target="_blank" rel="noopener">PracHub: Count Tree Vertices with Pythagorean Distances</a></li>
+    <li><a href="https://prachub.com/interview-questions/debug-event-search-pagination-and-redis-invalidation" target="_blank" rel="noopener">PracHub: Debug Event Search, Pagination, and Redis Invalidation</a></li>
+    <li><a href="https://prachub.com/interview-experiences?company=IBM" target="_blank" rel="noopener">All PracHub IBM experiences</a></li>
+    <li><a href="https://www.glassdoor.co.uk/Interview/IBM-Interview-E354-RVW89648103.htm" target="_blank" rel="noopener">Glassdoor: IBM internship report (binary search plus backend simulation)</a></li>
+  </ul>
+  <h3>LeetCode 1797</h3>
+  <ul>
+    <li><a href="https://leetcode.com/problems/design-authentication-manager/" target="_blank" rel="noopener">Problem</a></li>
+    <li><a href="https://algo.monster/liteproblems/1797" target="_blank" rel="noopener">Walkthrough with Java code</a></li>
+  </ul>
+  <h3>Spring Boot</h3>
+  <ul>
+    <li>Pagination: <a href="https://www.danvega.dev/blog/spring-data-jpa-pagination" target="_blank" rel="noopener">Dan Vega</a>, <a href="https://codejava.net/frameworks/spring-boot/spring-data-jpa-paging-and-sorting-examples" target="_blank" rel="noopener">codejava</a>, <a href="https://www.codingshuttle.com/spring-boot-handbook/paging-and-sorting-in-spring-data-jpa" target="_blank" rel="noopener">Coding Shuttle</a>, <a href="https://youtu.be/5fNK5lrj-X0" target="_blank" rel="noopener">video from the loizenai repo</a></li>
+    <li>Caching: <a href="https://howtodoinjava.com/spring-boot/spring-boot-cache-example/" target="_blank" rel="noopener">howtodoinjava</a>, <a href="https://youtu.be/3McRajvmdlw" target="_blank" rel="noopener">video from the MVP Java repo</a></li>
+    <li>Errors: <a href="https://www.baeldung.com/exception-handling-for-rest-with-spring" target="_blank" rel="noopener">Baeldung</a>, <a href="https://reflectoring.io/spring-boot-exception-handling" target="_blank" rel="noopener">reflectoring</a></li>
+    <li>Testing: <a href="https://reflectoring.io/spring-boot-web-controller-test/" target="_blank" rel="noopener">reflectoring: web controller tests</a>, <a href="https://howtodoinjava.com/spring-boot2/spring-boot-mockmvc-example/" target="_blank" rel="noopener">howtodoinjava: MockMvc</a></li>
+    <li>HackerRank-style practice: <a href="https://medium.com/@muhammaduzairse/spring-boot-test-library-management-api-2c65071ab1e9" target="_blank" rel="noopener">Library Management API walkthrough</a></li>
+  </ul>
+  <h3>YouTube search terms (I have not verified specific videos)</h3>
+  <p>"LeetCode 1797 Java", "LeetCode 146 LRU Cache Java", "Spring Boot pagination Pageable", "Spring Boot @Cacheable @CacheEvict", "Spring Boot @RestControllerAdvice", "Spring Boot MockMvc @WebMvcTest".</p>
+</section>
+
+<footer>Progress is stored in your browser only. Source reports are anonymous candidate accounts and may differ from your exact test.</footer>
+</div>
+
+<script>
+(function(){
+  var KEY = "ibm-sb-prep-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type=checkbox]'));
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ state = {}; }
+
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
+
+  function refresh(){
+    var done = 0;
+    boxes.forEach(function(b){
+      var li = b.closest('li');
+      if (b.checked) { done++; li.classList.add('done'); } else { li.classList.remove('done'); }
+    });
+    document.getElementById('ptext').textContent = done + ' of ' + boxes.length + ' tasks done';
+    document.getElementById('barfill').style.width = (boxes.length ? (100*done/boxes.length) : 0) + '%';
+    Array.prototype.forEach.call(document.querySelectorAll('section.day'), function(sec){
+      var bs = sec.querySelectorAll('input[type=checkbox]');
+      var d = 0; Array.prototype.forEach.call(bs, function(b){ if (b.checked) d++; });
+      var c = sec.querySelector('.count'); if (c) c.textContent = d + '/' + bs.length;
+    });
+  }
+
+  boxes.forEach(function(b, i){
+    b.checked = !!state[i];
+    b.addEventListener('change', function(){ state[i] = b.checked; save(); refresh(); });
+  });
+
+  document.getElementById('reset').addEventListener('click', function(){
+    if (!confirm('Clear all ticks?')) return;
+    state = {}; boxes.forEach(function(b){ b.checked = false; }); save(); refresh();
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
