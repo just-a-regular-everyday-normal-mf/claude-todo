@@ -1,0 +1,216 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Backend Mastery Checklist</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; overall gauge on top, topic chips, then collapsible groups of tickable rows. */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --fg:#14201c; --muted:#5b6b65; --line:#d5dcd9;
+  --accent:#0b7a5a; --accent-soft:#d9efe7; --done:#8a9892;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1714; --surface:#16211d; --fg:#e4efe9; --muted:#8fa49b; --line:#27362f;
+  --accent:#4fd1a5; --accent-soft:#17382c; --done:#5f736a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1714; --surface:#16211d; --fg:#e4efe9; --muted:#8fa49b; --line:#27362f;
+  --accent:#4fd1a5; --accent-soft:#17382c; --done:#5f736a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5;
+  padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,7vw,40px);line-height:1.05;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;max-width:60ch}
+.gauge{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.gauge-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.big{font-family:var(--f-mono);font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.bar{height:8px;background:var(--accent-soft);border-radius:4px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.on{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.chip{white-space:nowrap;display:flex;gap:8px;align-items:center}
+.chip small{font-family:var(--f-mono);color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.chip.on small{color:var(--bg)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+h2{font-family:var(--f-display);font-weight:600;font-size:24px;margin:0}
+.sec-head span{font-family:var(--f-mono);color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.groups{display:flex;flex-direction:column;gap:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+summary{cursor:pointer;list-style:none;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+summary::after{content:"+";font-family:var(--f-mono);color:var(--muted)}
+details[open]>summary::after{content:"\2212"}
+summary .t{flex:1;min-width:0}
+ul{list-style:none;margin:0;padding:0 16px 10px;display:flex;flex-direction:column}
+li{border-top:1px solid var(--line)}
+label{display:flex;gap:12px;align-items:flex-start;padding:9px 0;cursor:pointer;min-width:0}
+input[type=checkbox]{appearance:none;flex:none;width:20px;height:20px;margin-top:1px;border:1.5px solid var(--muted);border-radius:4px;background:transparent;cursor:pointer;display:grid;place-content:center}
+input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent)}
+input[type=checkbox]:checked::after{content:"";width:5px;height:10px;border:solid var(--bg);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+label span{min-width:0;overflow-wrap:anywhere}
+input:checked+span{color:var(--done);text-decoration:line-through;text-decoration-color:var(--line)}
+.hide-done li.d{display:none}
+.confirm{display:none;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted)}
+.confirm.show{display:flex}
+@media (prefers-reduced-motion:reduce){.bar>i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Backend Mastery Checklist</h1>
+    <p class="sub">Java, Spring Boot, databases, system design, DSA and AI for a senior-level backend interview. Tick items off as you can explain them out loud without notes.</p>
+  </header>
+  <section class="gauge" aria-label="Overall progress">
+    <div class="gauge-top"><span>Overall</span><span class="big" id="overall">0 / 0</span></div>
+    <div class="bar"><i id="overall-bar"></i></div>
+    <div class="tools">
+      <button id="btn-hide" type="button">Hide ticked</button>
+      <button id="btn-open" type="button">Expand all</button>
+      <button id="btn-reset" type="button">Reset</button>
+      <span class="confirm" id="confirm">Clear every tick?
+        <button id="btn-yes" type="button">Yes, reset</button><button id="btn-no" type="button">Cancel</button></span>
+    </div>
+  </section>
+  <nav class="chips" id="chips" aria-label="Topics"></nav>
+  <main id="main"></main>
+</div>
+
+<script>
+var DATA=[
+{t:"Java",g:[
+{g:"Language and OOP",i:["Interfaces vs abstract classes, default and static interface methods","Records, enums with behaviour, sealed classes and interfaces","Generics: wildcards, bounded types, type erasure and its limits","equals/hashCode/toString contract and what breaks when violated","Immutability: final, defensive copies, building an immutable class","Comparable vs Comparator, sorting stability","Inner, nested, local and anonymous classes; capturing variables","Initialization order: static blocks, instance blocks, constructors, inheritance","String pool, intern(), StringBuilder vs StringBuffer, string immutability","Autoboxing pitfalls: Integer cache, == vs equals, NPE on unboxing","Exceptions: checked vs unchecked, try-with-resources, custom exceptions, what not to catch","Pattern matching for instanceof and switch, text blocks, var","Optional: correct use and common misuse","Reflection, annotations, writing a custom annotation","Serialization and why to avoid Java native serialization","SOLID principles with Java examples"]},
+{g:"Collections",i:["ArrayList vs LinkedList vs ArrayDeque: real trade-offs","HashMap internals: hashing, bucket array, resize, treeification at 8","Why HashMap is not thread-safe and how it fails","LinkedHashMap and building an LRU cache","TreeMap, TreeSet, NavigableMap operations","PriorityQueue internals and heap complexity","ConcurrentHashMap internals: CAS, per-bin locking, size()","CopyOnWriteArrayList and when it fits","Fail-fast vs fail-safe iterators, ConcurrentModificationException","Immutable collections: List.of, Map.of, Collections.unmodifiable differences","EnumMap, EnumSet, IdentityHashMap, WeakHashMap use cases"]},
+{g:"Streams and functional style",i:["Functional interfaces: Function, Predicate, Supplier, Consumer, BiFunction","Lambdas vs anonymous classes, method references","map vs flatMap, reduce, collect, Collectors.groupingBy and partitioningBy","Lazy evaluation and short-circuiting in streams","Parallel streams: when they help, when they hurt, the common pool","Writing a custom Collector","Stream pitfalls: stateful lambdas, reuse of a stream, boxing cost"]},
+{g:"Concurrency",i:["Thread lifecycle and states, daemon threads","synchronized: monitor, reentrancy, wait/notify/notifyAll","volatile and the Java Memory Model, happens-before rules","Atomic classes, CAS, ABA problem, LongAdder","ReentrantLock, ReadWriteLock, StampedLock, Condition","ThreadPoolExecutor parameters, queue choices, rejection policies","Sizing thread pools for CPU-bound vs IO-bound work","CompletableFuture: chaining, combining, exception handling, custom executors","CountDownLatch, CyclicBarrier, Semaphore, Phaser, Exchanger","BlockingQueue producer-consumer implementation","Deadlock, livelock, starvation: reproduce one and fix it","ThreadLocal and its leaks in thread pools","Fork/Join framework and work stealing","Virtual threads (Java 21): how they work, pinning, when not to use them","Structured concurrency and scoped values awareness"]},
+{g:"JVM internals and troubleshooting",i:["Memory areas: heap, stack, metaspace, code cache, direct memory","Class loading, delegation model, custom class loaders","Garbage collectors: Serial, Parallel, G1, ZGC, Shenandoah and trade-offs","Generational hypothesis, young/old collection, GC roots, reference types","JIT compilation, tiered compilation, escape analysis, inlining","Common JVM flags: -Xms/-Xmx, GC logging, heap dump on OOM","Types of OutOfMemoryError and what each means","Read GC logs and diagnose long pauses","Take thread dumps (jstack, jcmd) and find a deadlock or hot thread","Take and analyze a heap dump with Eclipse MAT, find a leak","Java Flight Recorder and async-profiler basics","Microbenchmarking with JMH and why naive timing lies"]},
+{g:"Modern Java and tooling",i:["Features by version, 8 to 21: what each release added that matters","Java NIO: channels, buffers, Files API","Logging: SLF4J, Logback, structured logging, MDC for request IDs","Maven and Gradle: lifecycle, dependency scopes, BOMs, conflict resolution","JUnit 5, Mockito, AssertJ: parameterized and exception tests","Design patterns you must code: singleton, factory, builder, strategy, observer, decorator, proxy, template method","Clean code: naming, small functions, avoiding god classes, refactoring"]}]},
+
+{t:"Spring Boot",g:[
+{g:"Core and internals",i:["IoC container, ApplicationContext vs BeanFactory","Dependency injection types, why constructor injection wins","Bean scopes, lifecycle callbacks, @PostConstruct, ordering","Circular dependencies and how Spring resolves or rejects them","@Configuration, @Bean, @Component scanning, stereotype annotations","@Primary, @Qualifier, conditional beans, profiles","Auto-configuration: how @SpringBootApplication works, spring.factories / AutoConfiguration.imports","Write a custom starter","AOP: proxies (JDK vs CGLIB), pointcuts, advice types, self-invocation trap","Events and listeners, @Async, @Scheduled","Externalized configuration, @ConfigurationProperties, property precedence","Spring Boot startup sequence and how to speed it up"]},
+{g:"Web and REST",i:["DispatcherServlet request flow, filters vs interceptors","@RestController, request mapping, validation with Bean Validation","Global exception handling with @ControllerAdvice and ProblemDetail","DTOs vs entities, mapping with MapStruct","REST design: idempotency, status codes, HATEOAS awareness, versioning","Pagination, sorting, filtering patterns, cursor vs offset","File upload and download, streaming responses","CORS, content negotiation, Jackson customization","RestClient, WebClient and OpenFeign for outbound calls","Timeouts, retries, circuit breakers with Resilience4j","OpenAPI documentation with springdoc","Spring WebFlux and reactive basics (awareness level)"]},
+{g:"Data access and JPA",i:["JPA entity lifecycle: transient, managed, detached, removed","Persistence context, first-level cache, dirty checking, flush modes","Relationships: mapping, owning side, cascade, orphanRemoval","Lazy vs eager loading and LazyInitializationException","N+1 problem: reproduce, detect, fix with fetch join, entity graph, batch size","Spring Data repositories, derived queries, @Query, projections, specifications","Optimistic locking with @Version, pessimistic locking","Inheritance mapping strategies and their cost","Second-level cache and query cache","Batch inserts and updates, StatelessSession","HikariCP configuration and pool sizing","Flyway or Liquibase migrations, zero-downtime schema changes","Multiple datasources, read replicas routing","JdbcTemplate and jOOQ for when JPA is wrong"]},
+{g:"Transactions",i:["@Transactional: propagation levels and when each is used","Isolation levels and how they surface in Spring","Rollback rules: checked vs unchecked exceptions","Why @Transactional on private or self-invoked methods does nothing","Transaction boundaries across services and why not to span remote calls","Transactional outbox pattern implementation","Idempotent consumers and deduplication"]},
+{g:"Security",i:["Spring Security filter chain and SecurityFilterChain config","Authentication vs authorization, method security","Password hashing with BCrypt/Argon2","JWT: structure, signing, expiry, refresh tokens, revocation trade-offs","OAuth2 and OpenID Connect flows: authorization code with PKCE, client credentials","Resource server and integrating Keycloak or an IdP","CSRF, CORS, XSS, SQL injection, SSRF and how Spring helps","Secrets handling, Vault, environment-based configuration","Rate limiting and brute-force protection","OWASP top 10 mapped to a Spring app"]},
+{g:"Testing and quality",i:["Unit tests with Mockito, slice tests: @WebMvcTest, @DataJpaTest","@SpringBootTest and keeping it fast","Testcontainers for Postgres, Redis, Kafka","Contract testing awareness (Pact, Spring Cloud Contract)","Test data builders and avoiding flaky tests","Code coverage with JaCoCo and what it can't tell you","Static analysis: SonarQube, SpotBugs, Checkstyle"]},
+{g:"Operations and microservices",i:["Actuator endpoints, health probes, custom health indicators","Micrometer metrics, Prometheus and Grafana dashboards","Distributed tracing with OpenTelemetry, correlation IDs","Centralized logging: ELK or Loki","Graceful shutdown, readiness vs liveness","Spring Cloud Gateway, service discovery vs Kubernetes service DNS","Config management with Spring Cloud Config or ConfigMaps","Messaging with Spring Kafka and RabbitMQ: consumers, retries, DLQ","Spring Batch basics and scheduling in a multi-instance deployment (ShedLock)","Native images with GraalVM awareness, startup and memory trade-offs","Caching abstraction: @Cacheable, Redis cache, eviction and TTL strategy","Performance profiling of a slow endpoint end to end"]}]},
+
+{t:"Databases",g:[
+{g:"SQL fluency",i:["Joins: inner, left, full, cross, self, anti-join patterns","Aggregations, GROUP BY, HAVING, DISTINCT vs GROUP BY","Subqueries, correlated subqueries, EXISTS vs IN","CTEs and recursive CTEs","Window functions: ROW_NUMBER, RANK, LAG/LEAD, running totals, partitions","Set operations, CASE, COALESCE, NULL semantics","Top-N per group, deduplication, gaps and islands patterns","Date and time handling, time zones","JSON columns and querying them","Solve 50 SQL interview problems (LeetCode, DataLemur, StrataScratch)"]},
+{g:"Design and modeling",i:["Normalization 1NF to BCNF and deliberate denormalization","Keys: natural vs surrogate, UUID vs bigint, UUIDv7, ULID","Constraints, foreign keys and their cost at scale","Modeling one-to-many, many-to-many, hierarchies, soft deletes, audit trails","Multi-tenancy models: schema per tenant, row-level tenant ID","Designing for reporting vs OLTP"]},
+{g:"Indexes and query performance",i:["B-tree structure and why it fits disks","Composite index column order, covering indexes, partial indexes","Hash, GIN, GiST, BRIN indexes and when to use them","Reading EXPLAIN and EXPLAIN ANALYZE: scans, join types, row estimates","Why an index isn't used: functions, type mismatch, low selectivity, stale stats","Index write cost and bloat, VACUUM and autovacuum","Pagination at scale: keyset vs offset","Slow query hunting with pg_stat_statements","Fix three real slow queries on a sample dataset and record before/after timings"]},
+{g:"Transactions and concurrency",i:["ACID with concrete failure examples","Isolation levels and anomalies: dirty, non-repeatable, phantom, write skew","MVCC: how PostgreSQL and MySQL InnoDB implement it","Row locks, gap locks, SELECT FOR UPDATE, SKIP LOCKED for queues","Deadlock detection, reproduction and prevention","Optimistic vs pessimistic concurrency","Two-phase commit and why microservices avoid it","WAL, checkpoints, crash recovery, fsync trade-offs"]},
+{g:"Scaling and reliability",i:["Replication: sync vs async, lag, failover, read-your-writes","Partitioning (declarative) vs sharding, shard keys, resharding pain","Connection pooling with PgBouncer, pool sizing math","Backup and restore: PITR, logical vs physical, testing restores","High availability: Patroni, RDS Multi-AZ, Aurora","Zero-downtime migrations: expand/contract, online index creation","Capacity planning and monitoring: locks, bloat, cache hit ratio","CAP and PACELC applied to real databases"]},
+{g:"NoSQL and caching",i:["When SQL vs document vs key-value vs wide-column vs graph","MongoDB: schema design, indexes, aggregation pipeline, transactions","DynamoDB: partition and sort keys, access patterns, GSIs, single-table design","Cassandra basics: partition key, tombstones, consistency levels","Redis data structures and use cases: strings, hashes, sets, sorted sets, streams","Redis persistence (RDB, AOF), eviction policies, clustering","Cache patterns: cache-aside, write-through, write-behind","Cache stampede, penetration, avalanche and the fixes","Distributed locks with Redis and the Redlock debate","Elasticsearch/OpenSearch basics: inverted index, analyzers, relevance","Kafka as a log: partitions, offsets, compaction, retention"]}]},
+
+{t:"System Design and Infra",g:[
+{g:"Fundamentals",i:["Requirements gathering, functional vs non-functional, scoping an interview","Back-of-envelope estimation: QPS, storage, bandwidth, memorize the key numbers","Latency numbers, throughput vs latency, percentiles (p50/p95/p99)","Vertical vs horizontal scaling, stateless services","Load balancing: L4 vs L7, algorithms, health checks","CDN and edge caching","API design: REST, gRPC, GraphQL, pagination, idempotency keys","Rate limiting algorithms: token bucket, leaky bucket, sliding window","Consistent hashing and virtual nodes","SQL vs NoSQL decision framework"]},
+{g:"Distributed systems",i:["CAP, PACELC, consistency models: strong, eventual, causal","Replication and leader election, quorum reads and writes","Consensus awareness: Raft and Paxos at concept level","Distributed transactions: saga (orchestration vs choreography), outbox, 2PC","Idempotency, at-least-once vs exactly-once delivery","Message queues vs event streams, ordering, partitioning, backpressure","Retries, exponential backoff with jitter, timeouts, circuit breakers, bulkheads","Clock problems: logical clocks, vector clocks, NTP drift","Service discovery, API gateways, service mesh awareness","Event sourcing and CQRS: when they are worth it","Monolith vs microservices vs modular monolith trade-offs","Data pipelines basics: CDC with Debezium, batch vs stream"]},
+{g:"Reliability and observability",i:["SLI, SLO, SLA, error budgets","Metrics, logs, traces and how to use each when debugging","Alerting that doesn't page for noise","Graceful degradation, load shedding, feature flags","Deployment strategies: rolling, blue-green, canary","Disaster recovery: RPO and RTO, multi-region patterns","Incident response and writing a blameless postmortem","Chaos testing and load testing with k6 or JMeter"]},
+{g:"High-level design problems",i:["URL shortener","Rate limiter","Distributed cache","Notification system","News feed / timeline","Chat or messaging app","Ride-hailing or food-delivery dispatch","Payment system with ledger and reconciliation","Distributed job scheduler","File storage and sync (Drive/Dropbox)","Video streaming platform","Search autocomplete","Web crawler","Ticket booking with seat locking","Unique ID generator","Metrics and logging pipeline","Leaderboard","API gateway design"]},
+{g:"Low-level design problems",i:["Parking lot","Library management","Splitwise","Elevator system","Vending machine","Tic-tac-toe or chess","LRU/LFU cache","In-memory rate limiter","BookMyShow-style booking","Logger framework","Pub-sub in memory","Task scheduler"]},
+{g:"Git and Linux",i:["Branching, merge vs rebase, interactive rebase, cherry-pick","Resolving conflicts, reflog, reset vs revert, bisect","Pull request workflow and writing good commit messages","Linux navigation, permissions, processes, signals","top, htop, ps, lsof, netstat/ss, df, du, free","grep, awk, sed, find, xargs, pipes","journalctl, tail, systemd basics","Networking: DNS, TCP handshake, HTTP/1.1 vs HTTP/2, TLS, curl, tcpdump basics","Shell scripting for automation"]},
+{g:"Docker, Kubernetes, CI/CD",i:["Dockerfiles, layers, multi-stage builds, small and non-root images","Docker Compose for a local stack (app, DB, Redis, Kafka)","Container networking and volumes","Kubernetes: pods, deployments, services, ingress, ConfigMaps, Secrets","Probes, resource requests and limits, HPA","Debug a CrashLoopBackOff, OOMKilled and failing readiness probe","Helm basics","CI/CD pipelines with GitHub Actions: build, test, scan, push, deploy","Infrastructure as code: Terraform basics","Image and dependency scanning, SBOM awareness"]},
+{g:"AWS fundamentals",i:["IAM: users, roles, policies, least privilege","VPC, subnets, security groups, NAT, load balancers","EC2, ECS/Fargate, EKS, Lambda: when to use which","RDS and Aurora, DynamoDB, ElastiCache","S3, SQS, SNS, EventBridge, Kinesis/MSK","CloudWatch and cost awareness","Deploy your project end to end on AWS or a free tier"]}]},
+
+{t:"DSA",g:[
+{g:"Foundations",i:["Big-O for time and space, amortized analysis","Recursion and recurrence relations","Arrays, strings, hashing basics","Sorting algorithms and when each is used, custom comparators","Binary search on sorted data and on the answer space","Bit manipulation basics","Implement from scratch: dynamic array, hash map, linked list, stack, queue, min-heap"]},
+{g:"Core patterns (aim for 8-10 problems each)",i:["Hash map / frequency counting","Two pointers","Sliding window (fixed and variable)","Prefix sums and difference arrays","Fast and slow pointers, linked list reversal and cycles","Stack and monotonic stack","Monotonic queue / deque","Intervals: merge, insert, meeting rooms","Binary search variations","Heap / top-K / k-way merge","Greedy","Backtracking: subsets, permutations, combinations, N-Queens","Matrix traversal and in-place tricks"]},
+{g:"Trees and graphs",i:["Binary tree traversals (recursive and iterative), level order","Binary search tree operations and validation","Lowest common ancestor, tree diameter, path sums","Serialize and deserialize a tree","Trie","BFS and DFS on grids and graphs","Connected components, flood fill, number of islands","Topological sort (Kahn and DFS)","Union-find (DSU) with path compression","Dijkstra, Bellman-Ford awareness, 0-1 BFS","Minimum spanning tree: Kruskal, Prim","Bipartite check, cycle detection in directed and undirected graphs"]},
+{g:"Dynamic programming",i:["1D DP: climbing stairs, house robber, coin change","Knapsack variants: 0/1, unbounded, subset sum","Longest increasing subsequence","Longest common subsequence, edit distance","Grid DP: unique paths, min path sum","Partition DP: matrix chain style, palindrome partitioning","DP on strings, DP with bitmask awareness","State reduction and memoization to tabulation"]},
+{g:"Advanced and interview mastery",i:["Segment tree and Fenwick tree basics","LRU/LFU cache, design data structure problems (min stack, randomized set)","Sliding window maximum, median of data stream","String algorithms: KMP, rolling hash, Z-function awareness","Math and number theory: GCD, sieve, modular arithmetic","Solve 150 curated problems (NeetCode 150 or Blind 75 plus 75 more)","Time yourself: 20 minutes for a medium, 35 for a hard","Do 10 timed mocks with talk-aloud: clarify, brute force, optimize, code, test, complexity","Maintain a mistake log and re-solve missed problems after 3 days","Do 3 weekly contests on LeetCode or Codeforces"]}]},
+
+{t:"AI for Backend Engineers",g:[
+{g:"LLM fundamentals",i:["Tokens, context windows, temperature and sampling","How transformers work at a conceptual level","Model families, open vs closed models, selection criteria","Costs: input vs output tokens, caching, batching, model tiers","Hallucination causes and mitigation","Prompt engineering: system prompts, few-shot, structured output, chain-of-thought trade-offs"]},
+{g:"Integrating LLMs into services",i:["Call an LLM API from Spring Boot with timeouts, retries and streaming (SSE)","Spring AI and LangChain4j basics","Structured outputs and JSON schema validation","Function calling / tool use: define tools, handle loops safely","Handling rate limits, fallbacks between models, caching responses","Async processing of LLM jobs with queues","Conversation memory and state storage"]},
+{g:"RAG and retrieval",i:["Embeddings and semantic similarity","Chunking strategies and metadata","Vector databases: pgvector, Pinecone, Qdrant, trade-offs","ANN indexes: HNSW, IVF","Hybrid search (BM25 + vectors) and reranking","Build a RAG service in Spring Boot with pgvector and Docker","Measure retrieval quality: recall@k, relevance judgments"]},
+{g:"Agents and production concerns",i:["Agent loop design, planning, tool boundaries","Model Context Protocol (MCP): build a small MCP server","Evaluation: test sets, LLM-as-judge limits, regression suites","Guardrails: prompt injection, PII redaction, output validation","Observability for LLM calls: traces, token and cost dashboards","Fine-tuning vs RAG vs prompting: when each applies","Responsible use: data privacy, licensing, safety","ML basics for context: supervised vs unsupervised, overfitting, metrics","Using AI coding assistants well: review everything, test everything, understand every line"]}]}
+];
+
+var KEY="bmc-v1", state={}, hideDone=false;
+function load(){try{state=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){state={}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function id(s,g,i){return s+"-"+g+"-"+i}
+var total=0;DATA.forEach(function(s){s.n=0;s.g.forEach(function(g){s.n+=g.i.length});total+=s.n});
+
+function render(){
+  var main=document.getElementById("main"),chips=document.getElementById("chips");
+  var html="",ch="";
+  DATA.forEach(function(s,si){
+    ch+='<button class="chip" type="button" data-s="'+si+'">'+s.t+' <small id="cs'+si+'"></small></button>';
+    html+='<section id="sec'+si+'" style="margin-top:6px"><div class="sec-head"><h2>'+s.t+'</h2><span id="ss'+si+'"></span></div><div class="groups" style="margin-top:10px">';
+    s.g.forEach(function(g,gi){
+      html+='<details'+(si===0&&gi===0?' open':'')+'><summary><span class="t">'+g.g+'</span><span class="n" id="gs'+si+'_'+gi+'"></span></summary><ul>';
+      g.i.forEach(function(txt,ii){
+        var k=id(si,gi,ii);
+        html+='<li id="li'+k+'"><label><input type="checkbox" data-k="'+k+'" id="c'+k+'"><span>'+txt.replace(/&/g,"&amp;").replace(/</g,"&lt;")+'</span></label></li>';
+      });
+      html+='</ul></details>';
+    });
+    html+='</div></section>';
+  });
+  main.innerHTML=html;chips.innerHTML=ch;
+  Array.prototype.forEach.call(document.querySelectorAll("input[type=checkbox]"),function(c){
+    c.checked=!!state[c.getAttribute("data-k")];
+  });
+  update();
+}
+function update(){
+  var all=0;
+  DATA.forEach(function(s,si){
+    var sd=0;
+    s.g.forEach(function(g,gi){
+      var gd=0;
+      g.i.forEach(function(_,ii){
+        var k=id(si,gi,ii),on=!!state[k];if(on){gd++}
+        var li=document.getElementById("li"+k);if(li){li.className=on?"d":""}
+      });
+      sd+=gd;
+      document.getElementById("gs"+si+"_"+gi).textContent=gd+" / "+g.i.length;
+    });
+    all+=sd;
+    document.getElementById("ss"+si).textContent=sd+" / "+s.n;
+    document.getElementById("cs"+si).textContent=sd+"/"+s.n;
+  });
+  document.getElementById("overall").textContent=all+" / "+total;
+  document.getElementById("overall-bar").style.width=(total?all/total*100:0)+"%";
+}
+document.addEventListener("change",function(e){
+  var k=e.target.getAttribute&&e.target.getAttribute("data-k");
+  if(!k)return;
+  if(e.target.checked){state[k]=1}else{delete state[k]}
+  save();update();
+});
+document.getElementById("chips").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  var el=document.getElementById("sec"+b.getAttribute("data-s"));
+  if(el){el.scrollIntoView({behavior:"smooth",block:"start"})}
+});
+var openAll=false;
+document.getElementById("btn-open").addEventListener("click",function(){
+  openAll=!openAll;
+  Array.prototype.forEach.call(document.querySelectorAll("details"),function(d){d.open=openAll});
+  this.textContent=openAll?"Collapse all":"Expand all";
+});
+document.getElementById("btn-hide").addEventListener("click",function(){
+  hideDone=!hideDone;document.querySelector(".wrap").classList.toggle("hide-done",hideDone);
+  this.classList.toggle("on",hideDone);this.textContent=hideDone?"Showing open only":"Hide ticked";
+});
+var cf=document.getElementById("confirm");
+document.getElementById("btn-reset").addEventListener("click",function(){cf.classList.add("show")});
+document.getElementById("btn-no").addEventListener("click",function(){cf.classList.remove("show")});
+document.getElementById("btn-yes").addEventListener("click",function(){
+  state={};save();
+  Array.prototype.forEach.call(document.querySelectorAll("input[type=checkbox]"),function(c){c.checked=false});
+  update();cf.classList.remove("show");
+});
+load();render();
+</script>
+
+</body></html>
